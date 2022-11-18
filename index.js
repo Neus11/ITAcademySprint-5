@@ -103,7 +103,6 @@ jokeButton.addEventListener("click", combineJokes);
 
 const  jokeOut = document.querySelector("#joke");
 
-var jokeDad, jokeNorris;
 var rand = 0;
 
 function combineJokes() {
@@ -115,17 +114,17 @@ function combineJokes() {
     })
     .then(response => response.json())
     .then(data => {
-        jokeDad = data.joke;
+        jokeInfo = data.joke;
         return fetch("https://api.chucknorris.io/jokes/random");
     })
     .then(response => response.json())
     .then(data => {
-        jokeNorris = data.value;
+        jokeInfo = data.value;
         if (rand < 2) {
-            jokeOut.innerHTML = `<div id="jokeOut">"${jokeDad}"</div>`;
+            jokeOut.innerHTML = `<div id="jokeOut">"${jokeInfo}"</div>`;
             rand++;
         } else {
-            jokeOut.innerHTML = `<div id="jokeOut">"${jokeNorris}"</div>`;
+            jokeOut.innerHTML = `<div id="jokeOut">"${jokeInfo}"</div>`;
             rand = 0;
         }
     })
@@ -143,5 +142,9 @@ function combineJokes() {
     const jokes = await response.json();
     console.log(jokes.joke);
 } */
+
+
+
+//Cambios probando Pull Request
 
 
